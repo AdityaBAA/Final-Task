@@ -204,11 +204,6 @@ var database = [
 
 buildTable(database);
 
-var formatter = new Intl.NumberFormat('en-ID', {
-    style: 'currency',
-    currency: 'IDR',
-});
-
 function buildTable(data) {
     var table = document.getElementById("myTable");
     for (let i = 0; i < data.length; i++) {
@@ -225,13 +220,17 @@ function buildTable(data) {
     }
 }
 
+
 $(document).ready(function () {
     $("table tbody tr").click(function () {
         var a = [];
         $(this).find('td').each(function () {
             a.push($(this).text());
-            //    $("test").text(a.toString()); 
         });
-        $("#test").text(a);
+        // $("#test").text(a);
+        // name123(a);
+        localStorage.setItem("textValue", a);
+        window.location.href = 'data-lengkap.html';
+        // document.getElementById('namaOrang').innerHTML = localStorage.getItem("textValue")
     });
 });

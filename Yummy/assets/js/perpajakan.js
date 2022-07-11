@@ -1,3 +1,4 @@
+//Data dari 25 karyawan
 var database = [
     {
         'no': 1,
@@ -202,35 +203,48 @@ var database = [
     },
 ];
 
+//Eksekusi pembangunan tabel dari data array
 buildTable(database);
 
+//Menambahkan table secara otomatis dari data array
 function buildTable(data) {
     var table = document.getElementById("myTable");
     for (let i = 0; i < data.length; i++) {
         var row = `<tr>
-        <td>${data[i].no} </td>
-        <td>${data[i].nama} </td>
-        <td>${data[i].jabatan} </td>
-        <td>${data[i].cuti} </td>
-        <td>${data[i].ijin} </td>
-        <td>${data[i].sakit} </td>
-        <td>${data[i].gaji} </td>
+        <td data-label="No">${data[i].no} </td>
+        <td data-label="Nama">${data[i].nama} </td>
+        <td data-label="Jabatan">${data[i].jabatan} </td>
+        <td data-label="Cuti">${data[i].cuti} </td>
+        <td data-label="Ijin">${data[i].ijin} </td>
+        <td data-label="Sakit">${data[i].sakit} </td>
+        <td data-label="Gaji">${data[i].gaji} </td>
         </tr>`
         table.innerHTML += row;
     }
 }
 
-
+//Jquery dipakai disini
 $(document).ready(function () {
+    //Ketika klik salah satbu row di table, maka akan terlacak
     $("table tbody tr").click(function () {
         var a = [];
         $(this).find('td').each(function () {
             a.push($(this).text());
         });
-        // $("#test").text(a);
-        // name123(a);
-        localStorage.setItem("textValue", a);
+        //Memasukan value yang di klik kedalam local storage dan otomatis mengarahkan ke data-lengkap.html
+        localStorage.setItem("textValue", a[0]);
         window.location.href = 'data-lengkap.html';
-        // document.getElementById('namaOrang').innerHTML = localStorage.getItem("textValue")
     });
 });
+
+//Perhitungan perpajakan disini
+const pkp5 = 50000000;
+const pkp15 = 250000000;
+const pkp25 = 500000000;
+
+function pajak5(gajisetahun){
+    if(gajisetahun <= pkp5){
+        return (pkp5) * 5 / 100;
+    }
+    return (gajisetahun - ptkp) * 5 / 100;
+}

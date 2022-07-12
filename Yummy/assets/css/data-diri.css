@@ -1,0 +1,98 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    margin: 25px;
+}
+
+.shape {
+    background-color: white;
+    width: 100%;
+}
+
+.kiri {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: left;
+    width: 30%;
+    height: 500px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 5px 5px rgb(220, 220, 220);
+    border-radius: 25px;
+}
+
+.kanan {
+    display: flex;
+    /* justify-content: center; */
+    padding-left: 20px;
+    align-items: center;
+    float: right;
+    width: 68%;
+    height: 500px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 25px;
+    box-shadow: 5px 5px rgb(220, 220, 220);
+}
+
+.keterangan h2 {
+    color: rgb(58, 58, 58);
+}
+
+.gambar {
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+@media (max-width:500px) {
+    .circle-image{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .gambar {
+        width: 120px;
+        height: 120px;
+    }
+
+    .kiri {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 300px;
+        background-color: rgb(255, 255, 255);
+        box-shadow: 5px 5px rgb(220, 220, 220);
+        border-radius: 25px 25px 0px 0px;
+        
+    }
+
+    .kanan {
+        display: flex;
+        justify-content: left;
+        align-items: flex-start;
+        float: left;
+        width: 100%;
+        height: 200px;
+        background-color: rgb(255, 255, 255);
+        box-shadow: 5px 5px rgb(220, 220, 220);
+        border-radius: 0px 0px 25px 25px;
+    }
+
+    .keterangan h2 {
+        font-size: 15px;
+        color: rgb(58, 58, 58);
+    }
+
+    .wrap-it{
+        float: right;
+        position: relative;
+        margin-right: -90px;
+        margin-top: -118px;
+    }
+}

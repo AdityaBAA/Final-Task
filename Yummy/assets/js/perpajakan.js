@@ -231,50 +231,72 @@ $(document).ready(function () {
         $(this).find('td').each(function () {
             a.push($(this).text());
         });
-        pph21(a[6]);
+        // 'no': 1,
+        // 'nama': 'Azhari Ilham',
+        // 'jabatan': 'HRD',
+        // 'cuti': 0,
+        // 'ijin': 0,
+        // 'sakit': 2,
+        // 'gaji': 40000000,
+        // pph21(a[6]);
         //Memasukan value yang di klik kedalam local storage dan otomatis mengarahkan ke data-lengkap.html
-        localStorage.setItem("textValue", a[0]);
+        var total = 0;
+        for (let i = 3; i < 6; i++) {
+            total += parseInt(a[i]);
+        }
+        var totalAbsen = 20 * 12 - total;
+        var totalGaji = (a[6] * 12) - (a[6] * 1 / 20 * total);
+        // var total = parseInt(a[3]) + parseInt(a[4]) + parseInt(a[5]) ;
+        // console.log(total);
+        // console.log(totalAbsen);
+        // console.log(totalGaji);
+        pph21(totalGaji);
+        localStorage.setItem("no", a[0]);
+        localStorage.setItem("nama", a[1]);
+        localStorage.setItem("jabatan", a[2]);
+        localStorage.setItem("cuti", a[3]);
+        localStorage.setItem("ijin", a[4]);
+        localStorage.setItem("sakit", a[5]);
+        localStorage.setItem("totalAbsen", totalAbsen);
+        localStorage.setItem("totalGaji", totalGaji);
+
         window.location.href = 'data-lengkap.html';
     });
 });
 
 //Perhitungan perpajakan disini
-const ptkp = 54000000;
-const pkp5 = 60000000;
-const pkp10 = 100000000;
-const pkp15 = 200000000;
-const pkp20 = 500000000;
+const ptkp = 49000000;
+const pkp5 = 50000000;
+const pkp15 = 250000000;
+const pkp25 = 500000000;
+const pkp30 = 500000000;
 
 function pajak5(gajisetahun) {
-    if (gajisetahun > pkp5) {
+    if (gajisetahun >= pkp5) {
         return (ptkp - pkp5) * 5 / 100;
     }
     return (gajisetahun - ptkp) * 5 / 100;
 }
 
-function pajak10(gajisetahun) {
-    if (gajisetahun > pkp10) {
-        return (pkp5 - pkp10) * 10 / 100;
-    }
-    return (gajisetahun - pkp10) * 10 / 100;
-}
-
 function pajak15(gajisetahun) {
-    if (gajisetahun > pkp15) {
-        return (pkp10 - pkp15) * 15 / 100;
+    if (gajisetahun >= pkp15) {
+        return (pkp5 - pkp15) * 15 / 100;
     }
     return (gajisetahun - pkp15) * 15 / 100;
 }
 
-function pajak20(gajisetahun) {
-    if (gajisetahun > pkp20) {
-        return (pkp15 - pkp20) * 20 / 100;
+function pajak25(gajisetahun) {
+    if (gajisetahun >= pkp25) {
+        return (pkp15 - pkp25) * 25 / 100;
     }
-    return (gajisetahun - pkp20) * 20 / 100;
+    return (gajisetahun - pkp25) * 25 / 100;
 }
 
-function pajak25(gajisetahun) {
-    return (gajisetahun - pkp20) * 25 / 100;
+function pajak30(gajisetahun) {
+    if (gajisetahun > pkp30) {
+        return (pkp25 - pkp30) * 30 / 100;
+    }
+    return (gajisetahun - pkp30) * 30 / 100;
 }
 
 function pph21(gajisetahun) {
@@ -282,19 +304,17 @@ function pph21(gajisetahun) {
     if (gajisetahun > ptkp) {
         pajak += pajak5(gajisetahun);
         if (gajisetahun > pkp5) {
-            pajak += pajak10(gajisetahun);
-            if (gajisetahun > pkp10) {
-                pajak += pajak15(gajisetahun);
-                if (gajisetahun > pkp15) {
-                    pajak += pajak20(gajisetahun);
-                    if (gajisetahun > pkp20) {
-                        pajak += pajak25(gajisetahun);
-                    }
+            pajak += pajak15(gajisetahun);
+            if (gajisetahun > pkp15) {
+                pajak += pajak25(gajisetahun);
+                if (gajisetahun > pkp25) {
+                    pajak += pajak30(gajisetahun);
                 }
             }
         }
     } else {
-        alert("Penghasilan anda tidak kena pajak");
+        localStorage.setItem("statusPajak", "Penghasilan anda tidak kena pajak");
+        // alert("Penghasilan anda tidak kena pajak");
     }
-    alert("Pajak penghasilan anda: " + pajak);
+    localStorage.setItem("statusPajak", pajak);
 }

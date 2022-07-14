@@ -41,12 +41,12 @@
                 font-weight: bold;
                 font-family: Rockwell, Calibri, Monospace;
                 font-style: oblique;
-                margin-top: 50px;
+                margin-top: 30px;
             }
             
             #p2 {
-                color: red;
-                font-size: 20px;
+                color: blue;
+                font-size: 15px;
                 font-weight: bold;
                 font-family: Rockwell, Calibri, Monospace;
                 font-style: oblique;
@@ -64,11 +64,11 @@
 <body>
 
     <center>
-        <div class="pajak" <h3 id="p1">Menghitung pajak penghasilan Karyawan
+        <div class="pajak" < id="p1">Menghitung pajak penghasilan Karyawan
             <h3/> </div>
         <form name="formpph" onsubmit="pph21(this.penghasilan.value)"><input type="number" name="penghasilan" placeholder="Masukan penghasilan karyawan"><button type="submit">Hitung pajak</button></form>
-        <h3 id="p1">Meghitung gaji karyawan</h3>
-        <form id="p2" name="formpph" onsubmit="pph21(this.penghasilan.value)"><input type="number" name="penghasilan" placeholder="Menghitung ijin dan absen"><button type="submit">Hitung gaji karyawan</button></form>
+        <br></br>
+        <a href="gaji.html"><button id="p2">Hitung gaji karyawan</button>
         <script type="text/javascript">
             const ptkp = 49000000;
             const pkp5 = 50000000;
@@ -128,7 +128,8 @@
     <footer class="footer">
         <div class="footer__addr">
             <h1 class="footer__logo">My Restaurant</h1>
-            <h2>Contact</h2><address>email-coba@gmail.com +628 95465 654<br><a class="footer__btn" href="mailto:example@gmail.com">Email Us</a></address></div>
+            <h2>Contact</h2><address>email-coba@gmail.com +628 95465 654<br><a class="footer__btn" href="mailto:example@gmail.com">Email Us</a></address>
+        </div>
         <ul class="footer__nav">
             <li class="nav__item">
                 <h2 class="nav__title">Media Social</h2>
@@ -164,7 +165,7 @@
             <div class="legal__links"><span>Made by <span class="heart"></span>Tim 7 cari di google</span>
             </div>
         </div>
-    </footer>
+        </footer>
 </body>
 
 </html>

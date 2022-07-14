@@ -250,7 +250,7 @@ $(document).ready(function () {
         // console.log(total);
         // console.log(totalAbsen);
         // console.log(totalGaji);
-        pph21(totalGaji);
+        pph21dua(totalGaji);
         localStorage.setItem("no", a[0]);
         localStorage.setItem("nama", a[1]);
         localStorage.setItem("jabatan", a[2]);
@@ -269,7 +269,7 @@ const ptkp = 49000000;
 const pkp5 = 50000000;
 const pkp15 = 250000000;
 const pkp25 = 500000000;
-const pkp30 = 500000000;
+const pkp30 = 600000000;
 
 function pajak5(gajisetahun) {
     if (gajisetahun > pkp5) {
@@ -297,6 +297,25 @@ function pajak30(gajisetahun) {
         return (pkp25 - pkp30) * 30 / 100;
     }
     return (gajisetahun - pkp30) * 30 / 100;
+}
+
+function pph21dua(gajisetahun) {
+    let pajak = 0;
+    if (gajisetahun < 50000000) {
+        localStorage.setItem("statusPajak", "Penghasilan anda tidak kena pajak");
+    }
+    else if (gajisetahun > 50000000 && gajisetahun < 250000000) {
+        pajak = gajisetahun * 15 / 100;
+        localStorage.setItem("statusPajak", pajak);
+    }
+    else if (gajisetahun > 250000000 && gajisetahun < 500000000) {
+        pajak = gajisetahun * 25 / 100;
+        localStorage.setItem("statusPajak", pajak);
+    }
+    else if (gajisetahun > 500000000) {
+        pajak = gajisetahun * 30 / 100;
+        localStorage.setItem("statusPajak", pajak);
+    }
 }
 
 function pph21(gajisetahun) {

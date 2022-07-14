@@ -333,7 +333,6 @@ function pph21(gajisetahun) {
         }
     } else {
         localStorage.setItem("statusPajak", "Penghasilan anda tidak kena pajak");
-        // alert("Penghasilan anda tidak kena pajak");
     }
     localStorage.setItem("statusPajak", pajak);
 }

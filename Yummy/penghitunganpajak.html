@@ -43,7 +43,7 @@
                 font-style: oblique;
                 margin-top: 30px;
             }
-            
+
             #p2 {
                 color: blue;
                 font-size: 15px;
@@ -65,78 +65,52 @@
 
     <center>
         <div class="pajak" < id="p1">Menghitung pajak penghasilan Karyawan
-            <h3/> </div>
-        <form name="formpph" onsubmit="pph21(this.penghasilan.value)"><input type="number" name="penghasilan" placeholder="Masukan penghasilan karyawan"><button type="submit">Hitung pajak</button></form>
+        </h3>
+        </div>
+        <form name="formpph" onsubmit="pph21dua(this.penghasilan.value)"><input type="number" name="penghasilan"
+                placeholder="Masukan penghasilan karyawan"><button type="submit">Hitung pajak</button></form>
         <br></br>
         <a href="gaji.html"><button id="p2">Hitung gaji karyawan</button>
-        <script type="text/javascript">
-            const ptkp = 49000000;
-            const pkp5 = 50000000;
-            const pkp15 = 250000000;
-            const pkp25 = 500000000;
-            const pkp30 = 500000000;
+            <script type="text/javascript">
 
-            function pajak5(gajisetahun) {
-                if (gajisetahun >= pkp5) {
-                    return (ptkp - pkp5) * 5 / 100;
-                }
-                return (gajisetahun - ptkp) * 5 / 100;
-            }
-
-            function pajak15(gajisetahun) {
-                if (gajisetahun >= pkp15) {
-                    return (pkp5 - pkp15) * 15 / 100;
-                }
-                return (gajisetahun - pkp15) * 15 / 100;
-            }
-
-            function pajak25(gajisetahun) {
-                if (gajisetahun >= pkp25) {
-                    return (pkp15 - pkp25) * 25 / 100;
-                }
-                return (gajisetahun - pkp25) * 25 / 100;
-            }
-
-            function pajak30(gajisetahun) {
-                if (gajisetahun > pkp30) {
-                    return (pkp25 - pkp30) * 30 / 100;
-                }
-                return (gajisetahun - pkp30) * 30 / 100;
-            }
-
-            function pph21(gajisetahun) {
-                let pajak = 0;
-                if (gajisetahun > ptkp) {
-                    pajak += pajak5(gajisetahun);
-                    if (gajisetahun > pkp5) {
-                        pajak += pajak15(gajisetahun);
-                        if (gajisetahun > pkp15) {
-                            pajak += pajak25(gajisetahun);
-                            if (gajisetahun > pkp25) {
-                                pajak += pajak30(gajisetahun);
-                            }
-                        }
+                function pph21dua(gajisetahun) {
+                    let pajak = 0;
+                    if (gajisetahun < 50000000) {
+                       alert("Penghasilan anda tidak kena pajak")
                     }
-                } else {
-                    alert("Penghasilan anda tidak kena pajak");
+                    else if (gajisetahun > 50000000 && gajisetahun < 250000000) {
+                        pajak = gajisetahun * 15 / 100;
+                        alert("Pajak anda sebesar : " + pajak);
+                    }
+                    else if (gajisetahun > 250000000 && gajisetahun < 500000000) {
+                        pajak = gajisetahun * 25 / 100;
+                        alert("Pajak anda sebesar : " + pajak);
+                    }
+                    else if (gajisetahun > 500000000) {
+                        pajak = gajisetahun * 30 / 100;
+                        alert("Pajak anda sebesar : " + pajak);
+                    }
                 }
-                alert("Pajak penghasilan anda: " + pajak);
-            }
-        </script>
+            </script>
     </center>
     <link rel="stylesheet" href="assets/css/footer.css">
     <footer class="footer">
         <div class="footer__addr">
             <h1 class="footer__logo">My Restaurant</h1>
-            <h2>Contact</h2><address>email-coba@gmail.com +628 95465 654<br><a class="footer__btn" href="mailto:example@gmail.com">Email Us</a></address>
+            <h2>Contact</h2>
+            <address>email-coba@gmail.com +628 95465 654<br><a class="footer__btn" href="mailto:example@gmail.com">Email
+                    Us</a></address>
         </div>
         <ul class="footer__nav">
             <li class="nav__item">
                 <h2 class="nav__title">Media Social</h2>
                 <ul class="nav__ul">
-                    <li><img src="https://www.facebook.com/images/fb_icon_325x325.png" alt=""><a href="https://www.facebook.com">Facebook</a></li>
-                    <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/800px-Instagram_logo_2022.svg.png" alt=""><a href="https://www.instagram.com">Instagram</a></li>
-                    <li><img src="https://cdn-icons-png.flaticon.com/512/174/174879.png" alt=""><a href="https://www.whatsapp.com">Whatsapp</a></li>
+                    <li><img src="https://www.facebook.com/images/fb_icon_325x325.png" alt=""><a
+                            href="https://www.facebook.com">Facebook</a></li>
+                    <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/800px-Instagram_logo_2022.svg.png"
+                            alt=""><a href="https://www.instagram.com">Instagram</a></li>
+                    <li><img src="https://cdn-icons-png.flaticon.com/512/174/174879.png" alt=""><a
+                            href="https://www.whatsapp.com">Whatsapp</a></li>
                 </ul>
             </li>
             <li class="nav__item nav__item--extra">
@@ -150,22 +124,22 @@
                     </li>
                     <li>
                 </ul>
-                </li>
-                <li class="nav__item">
-                    <h2 class="nav__title">Address</h2>
-                    <ul class="nav__ul">
-                        <li>
-                            <p>Programmer street, number 9 London City</p>
-                        </li>
-                    </ul>
-                </li>
+            </li>
+            <li class="nav__item">
+                <h2 class="nav__title">Address</h2>
+                <ul class="nav__ul">
+                    <li>
+                        <p>Programmer street, number 9 London City</p>
+                    </li>
+                </ul>
+            </li>
         </ul>
         <div class="legal">
             <p>&copy; 2022 Something. All rights reserved.</p>
             <div class="legal__links"><span>Made by <span class="heart"></span>Tim 7 cari di google</span>
             </div>
         </div>
-        </footer>
+    </footer>
 </body>
 
 </html>

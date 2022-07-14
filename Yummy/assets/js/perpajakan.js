@@ -272,21 +272,21 @@ const pkp25 = 500000000;
 const pkp30 = 500000000;
 
 function pajak5(gajisetahun) {
-    if (gajisetahun >= pkp5) {
+    if (gajisetahun > pkp5) {
         return (ptkp - pkp5) * 5 / 100;
     }
     return (gajisetahun - ptkp) * 5 / 100;
 }
 
 function pajak15(gajisetahun) {
-    if (gajisetahun >= pkp15) {
+    if (gajisetahun > pkp15) {
         return (pkp5 - pkp15) * 15 / 100;
     }
     return (gajisetahun - pkp15) * 15 / 100;
 }
 
 function pajak25(gajisetahun) {
-    if (gajisetahun >= pkp25) {
+    if (gajisetahun > pkp25) {
         return (pkp15 - pkp25) * 25 / 100;
     }
     return (gajisetahun - pkp25) * 25 / 100;
